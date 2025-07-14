@@ -38,6 +38,21 @@ public class UserResponse {
         }
     }
 
+    // 회원 정보 수정 응답 DTO 설계
+    @Data
+    public static class UpdateDTO {
+        private Long id;
+        private String username;
+        private String email;
+
+        @Builder
+        public UpdateDTO(User user) {
+            this.id = user.getId();
+            this.username = user.getUsername();
+            this.email = user.getEmail();
+        }
+    }
+
     // 사용자 정보 조회 응답 DTO
     @Data
     public static class DetailDTO{
