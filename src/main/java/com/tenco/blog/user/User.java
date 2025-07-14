@@ -39,4 +39,16 @@ public class User {
         this.email = email;
         this.createdAt = createdAt;
     }
+
+    public void Update(UserRequest.UpdateDTO updateDTO) {
+        updateDTO.validate();
+
+        // 영속 상태 엔티티의 필드값을 변경
+        this.password = updateDTO.getPassword();
+        this.email = updateDTO.getEmail();
+
+        // 변경 감시(Dirty checking)
+        // 1. 영속성 컨텍스트가 최초 상태를 스냅샷 보관
+
+    }
 }
